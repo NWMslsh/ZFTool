@@ -37,6 +37,3 @@ FOUNDATION_EXPORT const unsigned char ZFToolVersionString[];
 #import "ZFToast.h"
 #import "ZFAlert.h"
 
-
-//ViewController
-
