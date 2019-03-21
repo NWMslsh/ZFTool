@@ -7,7 +7,7 @@
 //
 
 #import "UIView+ZFView.h"
-
+#import "UIView+Point.h"
 @implementation UIView (ZFView)
 #pragma mark X
 - (void)setX:(CGFloat)x
@@ -15,6 +15,7 @@
     CGRect frame = self.frame;
     frame.origin.x = x;
     self.frame = frame;
+    
 }
 
 - (CGFloat)x

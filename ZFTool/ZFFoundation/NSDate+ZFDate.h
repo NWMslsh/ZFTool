@@ -89,4 +89,19 @@
  */
 - (NSString *)zf_minutes;
 
+
+/**
+ 时间戳
+ 
+ @return 秒
+ */
+- (NSString *)toTimeStampBy;
+/**
+ 时间戳
+
+ @return 毫秒
+ */
+- (NSString *)toTimeStampByMS;
+
++(NSString *)getTimerInterval:(NSString *)dateStr;
 @end

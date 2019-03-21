@@ -37,6 +37,10 @@
 		2340C3F721E5EE1000AB18B7 /* UIView+ZFView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2340C3DB21E5EE1000AB18B7 /* UIView+ZFView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2340C3F821E5EE1000AB18B7 /* ZFCardView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2340C3DC21E5EE1000AB18B7 /* ZFCardView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2340C3F921E5EE1000AB18B7 /* UIView+Animation.h in Headers */ = {isa = PBXBuildFile; fileRef = 2340C3DD21E5EE1000AB18B7 /* UIView+Animation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		46B1001A223CDB79008FE3BB /* NSDictionary+ZFDic.h in Headers */ = {isa = PBXBuildFile; fileRef = 46B10018223CDB79008FE3BB /* NSDictionary+ZFDic.h */; };
+		46B1001B223CDB79008FE3BB /* NSDictionary+ZFDic.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B10019223CDB79008FE3BB /* NSDictionary+ZFDic.m */; };
+		46B1001E223CE230008FE3BB /* UIView+Point.h in Headers */ = {isa = PBXBuildFile; fileRef = 46B1001C223CE230008FE3BB /* UIView+Point.h */; };
+		46B1001F223CE230008FE3BB /* UIView+Point.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B1001D223CE230008FE3BB /* UIView+Point.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +87,10 @@
 		2340C3DB21E5EE1000AB18B7 /* UIView+ZFView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ZFView.h"; sourceTree = "<group>"; };
 		2340C3DC21E5EE1000AB18B7 /* ZFCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFCardView.h; sourceTree = "<group>"; };
 		2340C3DD21E5EE1000AB18B7 /* UIView+Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Animation.h"; sourceTree = "<group>"; };
+		46B10018223CDB79008FE3BB /* NSDictionary+ZFDic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+ZFDic.h"; sourceTree = "<group>"; };
+		46B10019223CDB79008FE3BB /* NSDictionary+ZFDic.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+ZFDic.m"; sourceTree = "<group>"; };
+		46B1001C223CE230008FE3BB /* UIView+Point.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Point.h"; sourceTree = "<group>"; };
+		46B1001D223CE230008FE3BB /* UIView+Point.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Point.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +182,8 @@
 				2340C3C721E5EE1000AB18B7 /* NSString+ZFString.m */,
 				2340C3C621E5EE1000AB18B7 /* NSDate+ZFDate.h */,
 				2340C3C821E5EE1000AB18B7 /* NSDate+ZFDate.m */,
+				46B10018223CDB79008FE3BB /* NSDictionary+ZFDic.h */,
+				46B10019223CDB79008FE3BB /* NSDictionary+ZFDic.m */,
 			);
 			path = ZFFoundation;
 			sourceTree = "<group>";
@@ -198,6 +208,8 @@
 		2340C3D721E5EE1000AB18B7 /* ZFView */ = {
 			isa = PBXGroup;
 			children = (
+				46B1001C223CE230008FE3BB /* UIView+Point.h */,
+				46B1001D223CE230008FE3BB /* UIView+Point.m */,
 				2340C3DB21E5EE1000AB18B7 /* UIView+ZFView.h */,
 				2340C3D821E5EE1000AB18B7 /* UIView+ZFView.m */,
 				2340C3DD21E5EE1000AB18B7 /* UIView+Animation.h */,
@@ -217,7 +229,9 @@
 			files = (
 				2340C3E421E5EE1000AB18B7 /* NSString+ZFString.h in Headers */,
 				2340C3DE21E5EE1000AB18B7 /* UIFont+ZFFont.h in Headers */,
+				46B1001E223CE230008FE3BB /* UIView+Point.h in Headers */,
 				2340C3ED21E5EE1000AB18B7 /* ZFToast.h in Headers */,
+				46B1001A223CDB79008FE3BB /* NSDictionary+ZFDic.h in Headers */,
 				2340C3EE21E5EE1000AB18B7 /* ZFAlert.h in Headers */,
 				2340C3F721E5EE1000AB18B7 /* UIView+ZFView.h in Headers */,
 				2340C3F921E5EE1000AB18B7 /* UIView+Animation.h in Headers */,
@@ -335,6 +349,8 @@
 				2340C3F521E5EE1000AB18B7 /* ZFCardView.m in Sources */,
 				2340C3E621E5EE1000AB18B7 /* NSString+ZFString.m in Sources */,
 				2340C3F421E5EE1000AB18B7 /* UIView+ZFView.m in Sources */,
+				46B1001B223CDB79008FE3BB /* NSDictionary+ZFDic.m in Sources */,
+				46B1001F223CE230008FE3BB /* UIView+Point.m in Sources */,
 				2340C3EC21E5EE1000AB18B7 /* NSNull+ZFNull.m in Sources */,
 				2340C3E721E5EE1000AB18B7 /* NSDate+ZFDate.m in Sources */,
 				2340C3DF21E5EE1000AB18B7 /* UIColor+ZFColor.m in Sources */,

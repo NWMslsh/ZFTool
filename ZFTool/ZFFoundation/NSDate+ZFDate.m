@@ -157,4 +157,27 @@
 - (NSString *)zf_minutes{
     return [NSDate stringFromDate:self withFormat:@"mm"];
 }
+
+/**
+ 时间戳
+ 
+ @return 秒
+ */
+- (NSString *)toTimeStampBy{
+    return [NSString stringWithFormat:@"%.f",self.timeIntervalSince1970];
+}
+/**
+ 时间戳
+ 
+ @return 毫秒
+ */
+- (NSString *)toTimeStampByMS{
+    return [NSString stringWithFormat:@"%.f",self.timeIntervalSince1970*1000];
+}
++ (NSString *)getTimerInterval:(NSString *)dateStr{
+    NSDateFormatter *dateFmt = [[ NSDateFormatter alloc ] init ];
+    dateFmt.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+    NSDate *myDate = [dateFmt dateFromString:dateStr];
+    return myDate.toTimeStampByMS;
+}
 @end
