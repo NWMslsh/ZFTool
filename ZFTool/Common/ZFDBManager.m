@@ -32,7 +32,7 @@
 
 @implementation ZFDBManager
 
-ZFSingletonM(ZFDBManager)
+ZF_SingletonM(ZFDBManager)
 - (instancetype)init{
     if (self = [super init]) {
         dbPath = [ZFCommonTool documentsFilePath:zf_db_name];

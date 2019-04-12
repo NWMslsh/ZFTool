@@ -44,6 +44,11 @@
 - (UIButton *(^)(UIColor *color,UIControlState state))zf_textColor;
 
 /**
+ title
+ */
+- (UIButton *(^)(NSString *title,UIControlState state))zf_text;
+
+/**
  bgColor
  */
 - (UIButton *(^)(UIColor *color))zf_bgColor;

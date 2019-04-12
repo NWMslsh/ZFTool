@@ -10,6 +10,8 @@
 #import <UIKit/UIKit.h>
 #import <CommonCrypto/CommonDigest.h>
 #import <CommonCrypto/CommonCryptor.h>
+#import "NSData+ZFData.h"
+#define FileHashDefaultChunkSizeForReadingData 1024*8
 @implementation NSString (ZFString)
 
 
@@ -281,15 +283,16 @@
     return [result copy];
 }
 #pragma mark AES加密
-NSString *const kInitVector = @"A-16-Byte-String";
-size_t const kKeySize = kCCKeySizeAES128;
+
+NSString *const kInitVector = @"BH-128ByteVector";
+
 - (NSString *)AES_encryptForKey:(NSString *)key {
     
-    NSData *contentData = [self dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *contentData = [self dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:false];
     NSUInteger dataLength = contentData.length;
     
     // 为结束符'\\0' +1
-    char keyPtr[kKeySize + 1];
+    char keyPtr[kCCKeySizeAES256 + 1];
     memset(keyPtr, 0, sizeof(keyPtr));
     [key getCString:keyPtr maxLength:sizeof(keyPtr) encoding:NSUTF8StringEncoding];
     
@@ -304,7 +307,7 @@ size_t const kKeySize = kCCKeySizeAES128;
                                           kCCAlgorithmAES,
                                           kCCOptionPKCS7Padding,  // 系统默认使用 CBC，然后指明使用 PKCS7Padding
                                           keyPtr,
-                                          kKeySize,
+                                          kCCKeySizeAES256,
                                           initVector.bytes,
                                           contentData.bytes,
                                           dataLength,
@@ -314,7 +317,7 @@ size_t const kKeySize = kCCKeySizeAES128;
     
     if (cryptStatus == kCCSuccess) {
         // 对加密后的数据进行 base64 编码
-        return [[NSData dataWithBytesNoCopy:encryptedBytes length:actualOutSize] base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithLineFeed];
+        return [[NSData dataWithBytesNoCopy:encryptedBytes length:actualOutSize] base64Encoding];
     }
     
     free(encryptedBytes);
@@ -326,7 +329,7 @@ size_t const kKeySize = kCCKeySizeAES128;
     //把 base64 String 转换成 Data
     NSData * contentData = [[NSData alloc]initWithBase64EncodedString:self options:NSDataBase64DecodingIgnoreUnknownCharacters];
     NSUInteger dataLength = contentData.length;
-    char keyPtr[kKeySize + 1];
+    char keyPtr[kCCKeySizeAES256 + 1];
     memset(keyPtr,0,sizeof(keyPtr));
     [key getCString:keyPtr maxLength:sizeof(keyPtr) encoding:NSUTF8StringEncoding];
     size_t decryptSize = dataLength + kCCBlockSizeAES128;
@@ -334,10 +337,10 @@ size_t const kKeySize = kCCKeySizeAES128;
     size_t actualOutSize = 0;
     NSData *initVector=[kInitVector dataUsingEncoding:NSUTF8StringEncoding];
     CCCryptorStatus cryptStatus = CCCrypt(kCCDecrypt,
-                                          kCCAlgorithmAES128,
+                                          kCCAlgorithmAES,
                                           kCCOptionPKCS7Padding,
                                           keyPtr,
-                                          kKeySize,
+                                          kCCKeySizeAES256,
                                           initVector.bytes,
                                           contentData.bytes,
                                           dataLength,
@@ -362,5 +365,35 @@ size_t const kKeySize = kCCKeySizeAES128;
     nil;
     
     
+}
+
++ (NSString *)md5OfFilePath:(NSString *)filePath
+{
+    NSFileHandle *handle = [NSFileHandle fileHandleForReadingAtPath:filePath];
+    if (!handle) {
+        return @"";
+    }
+    CC_MD5_CTX md5;
+    CC_MD5_Init(&md5);
+    BOOL done = NO;
+    while(!done)
+    {
+        NSData* fileData = [handle readDataOfLength: 256 ];
+        CC_MD5_Update(&md5, [fileData bytes], (CC_LONG)[fileData length]);
+        if( [fileData length] == 0 ) done = YES;
+    }
+    unsigned char digest[CC_MD5_DIGEST_LENGTH];
+    CC_MD5_Final(digest, &md5);
+    NSString *s = [NSString stringWithFormat: @"%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x",
+                   digest[0], digest[1],
+                   digest[2], digest[3],
+                   digest[4], digest[5],
+                   digest[6], digest[7],
+                   digest[8], digest[9],
+                   digest[10], digest[11],
+                   digest[12], digest[13],
+                   digest[14], digest[15]];
+    
+    return s;
 }
 @end

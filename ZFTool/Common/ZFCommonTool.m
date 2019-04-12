@@ -16,7 +16,7 @@
 + (BOOL)isFileExistsAtPath:(NSString*)path
 {
     
-    return [ZFFileManager fileExistsAtPath:path];
+    return [ZF_FileManager fileExistsAtPath:path];
 }
 
 /**
@@ -27,8 +27,8 @@
 + (BOOL)createWhenDirectoryNotExistsAtPath:(NSString*)path
 {
     
-    if (![ZFFileManager fileExistsAtPath:path]) {
-        return [ZFFileManager createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:nil];
+    if (![ZF_FileManager fileExistsAtPath:path]) {
+        return [ZF_FileManager createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:nil];
     }
     return YES;
 }
@@ -41,8 +41,8 @@
 + (BOOL)removeDirectoryAtPath:(NSString*)path
 {
     
-    if ([ZFFileManager fileExistsAtPath:path])  {
-        return [ZFFileManager removeItemAtPath:path error:nil];
+    if ([ZF_FileManager fileExistsAtPath:path])  {
+        return [ZF_FileManager removeItemAtPath:path error:nil];
     }
     return YES;
 }
@@ -61,6 +61,29 @@
     NSString* documentDirectory = [paths objectAtIndex:0];
     
     return [NSString stringWithFormat:@"%@/%@", documentDirectory, fileName];
+}
+/**
+ * function: 得到文件夹中的文件
+ * param:    @path :文件名
+ * return:   文件路径
+ */
++ (NSArray *)getPathFiles:(NSString*)floderName{
+    
+    NSString *path = [self documentsFilePath:floderName];
+
+    if (![ZF_FileManager fileExistsAtPath:path]) {
+        [ZF_FileManager createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:nil];
+    }
+    NSError *error;
+    NSArray *fileArr = [ZF_FileManager contentsOfDirectoryAtPath:path error:&error];
+    
+    if (error) {
+        
+        ZFLOG(@"得到文件夹中的文件:%@",error);
+        return nil;
+    }
+    
+    return fileArr;
 }
 #pragma mark Image
 /**
@@ -115,13 +138,46 @@
     }
     
 }
+/**
+ * function:  保存文件到document/dir
+ */
++ (void)saveData:(NSData *)data WithName:(NSString*)dataName WithDir:(NSString*)dir
 
+{
+    NSArray* paths = NSSearchPathForDirectoriesInDomains (NSDocumentDirectory,NSUserDomainMask,YES);
+    
+    NSString* documentsDirectory = [paths objectAtIndex:0];
+    
+    // Now we get the full path to the file
+    
+    NSString* fullPathToFile = [documentsDirectory stringByAppendingPathComponent:dir];
+    if ([self createWhenDirectoryNotExistsAtPath:fullPathToFile]) {
+        fullPathToFile = [fullPathToFile stringByAppendingPathComponent:dataName];
+        // and then we write it out
+        [data writeToFile:fullPathToFile atomically:NO];
+    }
+    
+}
+
+/**
+ 移除某个目录下的文件
+ */
++ (void)removeDataName:(NSString*)dataName WithDir:(NSString*)dir{
+    
+    NSArray* paths = NSSearchPathForDirectoriesInDomains (NSDocumentDirectory,NSUserDomainMask,YES);
+    NSString* documentsDirectory = [paths objectAtIndex:0];
+    
+    NSString* fullPathToFile = [[documentsDirectory stringByAppendingPathComponent:dir]stringByAppendingPathComponent:dataName];
+    [ZF_FileManager removeItemAtPath:fullPathToFile error:nil];
+
+    
+}
 #pragma mark -other
 //字典转JSON字符
 + (NSString *)convertToJsonData:(NSDictionary *)dict
 
 {
-    if (IsNull(dict)) {
+    if (ZF_IsNull(dict)) {
         return nil;
     }
     

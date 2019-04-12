@@ -88,4 +88,11 @@
  AES解密
  */
 - (NSString *)AES_decryptForKey:(NSString*)key;
+
+
+/**
+ 文件MD5加密
+ @param path 路径
+ */
++ (NSString*)md5OfFilePath:(NSString*)path;
 @end

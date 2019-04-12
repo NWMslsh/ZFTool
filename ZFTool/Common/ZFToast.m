@@ -78,19 +78,19 @@ static ZFToast *instance_toast = nil;
     self.titlelb.text = status;
     CGFloat width = [UIView getLableWidth:status font:[UIFont Size:15]] + 20;
     
-    if (width > SCREEN_W - 100) {
-        width = SCREEN_W - 100;
+    if (width > ZF_ScreenW - 100) {
+        width = ZF_ScreenW - 100;
     }
     
-    CGFloat height = [UIView getLableHeigth:status font:[UIFont Size:15] andWidth:SCREEN_W - 100] + 10;
-    self.frame = CGRectMake((SCREEN_W - width)/2, SCREEN_H - height - 64, width, height);
+    CGFloat height = [UIView getLableHeigth:status font:[UIFont Size:15] andWidth:ZF_ScreenW - 100] + 10;
+    self.frame = CGRectMake((ZF_ScreenW - width)/2, ZF_ScreenH - height - 64, width, height);
     self.titlelb.frame = self.bounds;
     if (self.hidden) {
         [self viewAnimationBlowWithDuration:0.5];
     }
     
     self.hidden = false;
-    WeakSelf(self);
+    ZF_WeakSelf(self);
 
     dispatch_async(dispatch_get_main_queue(), ^{
         

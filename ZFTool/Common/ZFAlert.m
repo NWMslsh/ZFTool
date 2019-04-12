@@ -22,7 +22,7 @@
         NSString *otherTitle = titles[i];
         
         UIAlertAction *otherA = [UIAlertAction actionWithTitle:otherTitle style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-             BLOCK_EXEC(otherAction,i);
+             ZF_BLOCK_EXEC(otherAction,i);
             
         }];
         [vc addAction:otherA];
@@ -30,7 +30,7 @@
     
     UIAlertAction *cancelA = [UIAlertAction actionWithTitle:cancel style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
         
-        BLOCK_EXEC(cancelAction);
+        ZF_BLOCK_EXEC(cancelAction);
         
     }];
     [vc addAction:cancelA];

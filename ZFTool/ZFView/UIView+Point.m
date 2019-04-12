@@ -56,6 +56,14 @@
         return self;
     };
 }
+- (UIButton *(^)(NSString *title,UIControlState state))zf_text{
+    
+    return ^(NSString *title,UIControlState state){
+        
+        [self setTitle:title forState:state];
+        return self;
+    };
+}
 - (UIButton *(^)(UIColor *color,UIControlState state))zf_textColor{
  
     return ^(UIColor *color,UIControlState state){

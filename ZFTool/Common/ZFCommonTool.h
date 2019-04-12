@@ -37,6 +37,13 @@
  * return:   文件路径
  */
 + (NSString*)documentsFilePath:(NSString*)fileName;
+/**
+ * function: 得到文件夹中的文件
+ * param:    @path :文件名
+ * return:   文件路径
+ */
++ (NSArray *)getPathFiles:(NSString*)floderName;
+
 #pragma mark Image
 /**
  * function:  使用图片名找本地image
@@ -53,7 +60,14 @@
  * function:  保存图片到document/dir
  */
 + (void)saveImage:(UIImage*)tempImage WithName:(NSString*)imageName WithDir:(NSString*)dir;
-
+/**
+ * function:  保存文件到document/dir
+ */
++ (void)saveData:(NSData *)data WithName:(NSString*)dataName WithDir:(NSString*)dir;
+/**
+ 移除某个目录下的文件
+ */
++ (void)removeDataName:(NSString*)dataName WithDir:(NSString*)dir;
 
 #pragma mark VC
 //获取当前屏幕显示的viewcontroller

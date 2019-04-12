@@ -22,7 +22,7 @@ FOUNDATION_EXPORT const unsigned char ZFToolVersionString[];
 #import "UIView+Animation.h"
 #import "UIView+ZFView.h"
 #import "ZFCardView.h"
-
+#import "UIView+Point.h"
 // ZFKit
 #import "UIColor+ZFColor.h"
 #import "UIFont+ZFFont.h"
@@ -31,7 +31,9 @@ FOUNDATION_EXPORT const unsigned char ZFToolVersionString[];
 // ZFFoundation
 #import "NSString+ZFString.h"
 #import "NSDate+ZFDate.h"
-
+#import "NSDictionary+ZFDic.h"
+#import "NSObject+ZFObject.h"
+#import "ZFResult.h"
 // Common
 #import "ZFCommonTool.h"
 #import "ZFToast.h"

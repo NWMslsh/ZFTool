@@ -7,65 +7,68 @@
 //
 
 //机型
-#define SCREEN_H [UIScreen mainScreen].bounds.size.height
-#define SCREEN_W [UIScreen mainScreen].bounds.size.width
+#define ZF_ScreenH [UIScreen mainScreen].bounds.size.height
+#define ZF_ScreenW [UIScreen mainScreen].bounds.size.width
 
-#define SCALE_H 667/SCREEN_H
+#define ZF_ScaleH ZF_ScreenH/667.0
 
-#define kStatusH [UIApplication sharedApplication].statusBarFrame.size.height
-#define kNavH  44
+#define ZF_StatusH [UIApplication sharedApplication].statusBarFrame.size.height
+#define ZF_NavH  44
 
-#define KIsIPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640,1136), [[UIScreen mainScreen] currentMode].size) : NO)
-#define KIsIPhone6 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? (CGSizeEqualToSize(CGSizeMake(750,1334), [[UIScreen mainScreen] currentMode].size) || CGSizeEqualToSize(CGSizeMake(640,1136), [[UIScreen mainScreen] currentMode].size)) : NO)
-#define KIsIPhone6plus ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? (CGSizeEqualToSize(CGSizeMake(1125,2001), [[UIScreen mainScreen] currentMode].size) || CGSizeEqualToSize(CGSizeMake(1242,2208), [[UIScreen mainScreen] currentMode].size)) : NO)
-#define kIsIPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+#define ZF_IsIPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640,1136), [[UIScreen mainScreen] currentMode].size) : NO)
+#define ZF_IsIPhone6 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? (CGSizeEqualToSize(CGSizeMake(750,1334), [[UIScreen mainScreen] currentMode].size) || CGSizeEqualToSize(CGSizeMake(640,1136), [[UIScreen mainScreen] currentMode].size)) : NO)
+#define ZF_IsIPhone6plus ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? (CGSizeEqualToSize(CGSizeMake(1125,2001), [[UIScreen mainScreen] currentMode].size) || CGSizeEqualToSize(CGSizeMake(1242,2208), [[UIScreen mainScreen] currentMode].size)) : NO)
+#define ZF_IsIPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
 
 
 /**
  判空
  */
-#define  IsNull(obj) obj == nil || obj == NULL ||[obj isKindOfClass:[NSNull class]] ? YES : NO
+#define  ZF_IsNull(obj) obj == nil || obj == NULL ||[obj isKindOfClass:[NSNull class]] ? YES : NO
 
 /**
  判断空串
  */
-#define  IsEmptyStr(string) string == nil || string == NULL ||[string isKindOfClass:[NSNull class]]|| [string isEqualToString:@""] ||[[string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] length]==0 ? YES : NO
+#define  ZF_IsEmptyStr(string) string == nil || string == NULL ||[string isKindOfClass:[NSNull class]]|| [string isEqualToString:@""] ||[[string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] length]==0 ? YES : NO
 
 
 #define DEFINE_EVENT(EVENT) static NSString* EVENT = @#EVENT;
 
-#define ZFUserDefaults [NSUserDefaults standardUserDefaults]
+#define ZF_UserDefaults [NSUserDefaults standardUserDefaults]
 
-#define ZFFileManager [NSFileManager defaultManager]
+#define ZF_FileManager [NSFileManager defaultManager]
 
-#define WeakSelf(type)  __weak typeof(type) weak##type = type;
-#define BlockSelf(type)  __block typeof(type) block##type = type;
+#define ZF_WeakSelf(type)  __weak typeof(type) weak##type = type;
+#define ZF_BlockSelf(type)  __block typeof(type) block##type = type;
 //检测block是否可用
-#define BLOCK_EXEC(block, ...) if (block) { block(__VA_ARGS__); };
+#define ZF_BLOCK_EXEC(block, ...) if (block) { block(__VA_ARGS__); };
 // View圆角
-#define ViewRadius(View,Radius) [View.layer setCornerRadius:(Radius)]; [View.layer setMasksToBounds:YES];
+#define ZF_ViewRadius(View,Radius) [View.layer setCornerRadius:(Radius)]; [View.layer setMasksToBounds:YES];
 //View圆角和加边框
-#define ViewBorderRadius(View,Radius,Width,Color)  [View.layer setCornerRadius:(Radius)];[View.layer setMasksToBounds:YES];[View.layer setBorderWidth:(Width)];[View.layer setBorderColor:[Color CGColor]];
+#define ZF_ViewBorderRadius(View,Radius,Width,Color)  [View.layer setCornerRadius:(Radius)];[View.layer setMasksToBounds:YES];[View.layer setBorderWidth:(Width)];[View.layer setBorderColor:[Color CGColor]];
 
-#define k_rgb_color(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(1)]
-#define k_rgba_color(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
+#define ZF_rgb_color(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(1)]
+#define ZF_rgba_color(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
 
-#define k_hex_color(hexValue) [UIColor colorWithRed:((float)((hexValue & 0xFF0000) >> 16)) / 255.0 green:((float)((hexValue & 0xFF00) >> 8)) / 255.0 blue:((float)(hexValue & 0xFF)) / 255.0 alpha:1.0f]
+#define ZF_hex_color(hexValue) [UIColor colorWithRed:((float)((hexValue & 0xFF0000) >> 16)) / 255.0 green:((float)((hexValue & 0xFF00) >> 8)) / 255.0 blue:((float)(hexValue & 0xFF)) / 255.0 alpha:1.0f]
 
 
 
 
 #ifdef DEBUG
-#define ZFLOG(...)  printf("<%s line%d>\n%s\n", __FUNCTION__,__LINE__,[[NSString stringWithFormat:__VA_ARGS__] UTF8String])
+#define ZFLOG(...)  printf("%s <line:%d> %s\n", __FUNCTION__,__LINE__,[[NSString stringWithFormat:__VA_ARGS__] UTF8String])
+#define MCULOG(...)  printf("%s\n",[[NSString stringWithFormat:__VA_ARGS__] UTF8String])
+
 #else
 
 #define ZFLOG(...)
+#define MCULOG(...)
 
 #endif
 
 //单例
-#define ZFSingletonH + (instancetype)shared;
-#define ZFSingletonM(className) \
+#define ZF_SingletonH + (instancetype)shared;
+#define ZF_SingletonM(className) \
 static className *_instance = nil;\
 + (instancetype)shared{\
 static dispatch_once_t onceToken;\
