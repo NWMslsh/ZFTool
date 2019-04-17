@@ -13,14 +13,16 @@
 #define ZF_ScaleH ZF_ScreenH/667.0
 
 #define ZF_StatusH [UIApplication sharedApplication].statusBarFrame.size.height
-#define ZF_NavH  44
+#define ZF_NavH  self.navigationController.navigationBar.frame.size.height
+#define ZF_NavHAndStatusH ZF_NavH + ZF_StatusH
 
 #define ZF_IsIPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640,1136), [[UIScreen mainScreen] currentMode].size) : NO)
 #define ZF_IsIPhone6 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? (CGSizeEqualToSize(CGSizeMake(750,1334), [[UIScreen mainScreen] currentMode].size) || CGSizeEqualToSize(CGSizeMake(640,1136), [[UIScreen mainScreen] currentMode].size)) : NO)
 #define ZF_IsIPhone6plus ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? (CGSizeEqualToSize(CGSizeMake(1125,2001), [[UIScreen mainScreen] currentMode].size) || CGSizeEqualToSize(CGSizeMake(1242,2208), [[UIScreen mainScreen] currentMode].size)) : NO)
 #define ZF_IsIPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
 
-
+//IMG
+#define IMG(IMGSTR)  [UIImage imageNamed:IMGSTR]
 /**
  判空
  */

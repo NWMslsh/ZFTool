@@ -396,4 +396,12 @@ NSString *const kInitVector = @"BH-128ByteVector";
     
     return s;
 }
+
+- (BOOL)isContainsString:(NSString *)sFind {
+    if (sFind == nil) {
+        return FALSE;
+    }
+    NSRange range = [self rangeOfString:sFind];
+    return range.length != 0;
+}
 @end

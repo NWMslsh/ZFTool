@@ -34,12 +34,12 @@ static ZFToast *instance_toast = nil;
         self.layer.masksToBounds = true;
         
         self.hidden = true;
-        self.backgroundColor = [UIColor mask_color];
+        self.backgroundColor = UIColor.mask_color();
         UILabel *titlelb = [UILabel new];
         titlelb.font = [UIFont Size:15];
         titlelb.numberOfLines = 0;
         titlelb.textAlignment = NSTextAlignmentCenter;
-        titlelb.textColor = [UIColor white_color];
+        titlelb.textColor = UIColor.whiteColor;
         [self addSubview:titlelb];
         self.titlelb = titlelb;
         

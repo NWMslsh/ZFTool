@@ -95,4 +95,9 @@
  @param path 路径
  */
 + (NSString*)md5OfFilePath:(NSString*)path;
+
+/**
+ 是否包含
+ */
+- (BOOL)isContainsString:(NSString *)sFind;
 @end

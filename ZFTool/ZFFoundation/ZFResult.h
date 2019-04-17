@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-
+@class ZFResult;
+typedef void (^ZFResultBlock)(ZFResult *result);
 
 @interface ZFResult<ObjectType> : NSObject
 

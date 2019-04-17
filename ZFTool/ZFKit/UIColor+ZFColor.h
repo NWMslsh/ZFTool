@@ -15,39 +15,36 @@
  
  @return color
  */
-+(UIColor *)navi_color;
++(UIColor * (^)(void))navi_color;
 /**
  普通背景色
  
  @return color
  */
-+(UIColor *)default_BG;
++(UIColor *(^)(void))default_BG;
 
 /**
  普通字体颜色
  */
-+ (UIColor *)text_color;
++ (UIColor *(^)(void))text_color;
 /**
  灰色
  */
-+ (UIColor *)dark_color;
++ (UIColor *(^)(void))dark_color;
 
 /**
  淡灰色
  */
-+ (UIColor *)gray_color;
++ (UIColor *(^)(void))gray_color;
 
 /**
  线条色
  */
-+(UIColor *)default_line;
++(UIColor *(^)(void))default_line;
 
 /**
  遮罩色
  */
-+ (UIColor *)mask_color;
-/**
- 白色
- */
-+ (UIColor *)white_color;
++ (UIColor *(^)(void))mask_color;
+
 @end
