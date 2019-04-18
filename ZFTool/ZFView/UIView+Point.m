@@ -10,12 +10,7 @@
 #import "UIView+Point.h"
 
 @implementation UIView (Point)
-+ (UIView *(^)(void))zf_init{
-    return ^(){
-        return [[UIView alloc]init];
-        
-    };
-}
+
 
 - (UIView *(^)(CGFloat x,CGFloat y,CGFloat width,CGFloat height))zf_frame{
     return ^(CGFloat x,CGFloat y,CGFloat width,CGFloat height){

@@ -10,10 +10,7 @@
 #import <UIKit/UIKit.h>
 
 @interface UIView (Point)
-/**
- 初始化
- */
-+ (UIView *(^)(void))zf_init;
+
 
 /**
  frame
@@ -28,10 +25,7 @@
 
 
 @interface UIButton (Point)
-/**
- 按钮初始化
- */
-+ (UIButton *(^)(void))zf_init;
+
 
 /**
  title font
@@ -63,10 +57,6 @@
 @end
 @interface UILabel (Point)
 
-/**
- 初始化
- */
-+ (UILabel *(^)(void))zf_init;
 
 /**
  font

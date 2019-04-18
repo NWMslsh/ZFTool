@@ -5,6 +5,9 @@
 //  Created by fengz on 2018/7/25.
 //  Copyright © 2018年 FengZ. All rights reserved.
 //
+#define ZF_Phone_Number @"0123456789-"
+#define ZF_PaasWord_Number @"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_"
+
 
 //机型
 #define ZF_ScreenH [UIScreen mainScreen].bounds.size.height
@@ -26,7 +29,7 @@
 /**
  判空
  */
-#define  ZF_IsNull(obj) obj == nil || obj == NULL ||[obj isKindOfClass:[NSNull class]] ? YES : NO
+#define  ZF_IsNull(obj) [obj isKindOfClass:[NSNull class]] || obj == NULL || obj == nil ? YES : NO
 
 /**
  判断空串
@@ -89,3 +92,13 @@ return _instance;\
 - (id)copyWithZone:(NSZone *)zone{\
 return _instance;\
 }
+
+
+#define ZF_PostNotication(aName,anObject,aUserInfo) dispatch_async(dispatch_get_main_queue(), ^{\
+[[NSNotificationCenter defaultCenter]postNotificationName:aName object:anObject userInfo:aUserInfo];\
+});
+
+#define ZF_AddNotication(name_Y)   [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(onEventNotification:) name:name_Y object:nil];
+
+
+#define ZF_RemNotication(name) [[NSNotificationCenter defaultCenter] removeObserver:self name:name object:nil];

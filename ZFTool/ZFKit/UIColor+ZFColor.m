@@ -19,7 +19,7 @@
 +(UIColor * (^)(void))navi_color{
     
     return ^(void){
-        return ZF_rgb_color(100, 191, 138);
+        return ZF_rgb_color(28, 169, 161);
     };
     
 }
