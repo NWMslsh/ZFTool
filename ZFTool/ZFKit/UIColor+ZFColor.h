@@ -16,6 +16,13 @@
  @return color
  */
 +(UIColor * (^)(void))navi_color;
+
+/**
+ 导航栏颜色
+ 
+ @return color
+ */
++(UIColor *)mainColor;
 /**
  普通背景色
  
