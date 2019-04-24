@@ -39,4 +39,5 @@
  粗字体
  */
 + (UIFont *)BSizeEn:(CGFloat)size;
+
 @end
