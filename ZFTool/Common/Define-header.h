@@ -17,8 +17,8 @@
 
 #define ZF_StatusH [UIApplication sharedApplication].statusBarFrame.size.height
 #define ZF_NavH  self.navigationController.navigationBar.frame.size.height
-#define ZF_StatusHAndNavH ZF_StatusH+ZF_NavH
-#define ZF_TabbarH (ZF_StatusH > 20)?83:49
+#define ZF_StatusHAndNavH ZF_StatusH + ZF_NavH
+#define ZF_TabbarH (ZF_StatusH > 20.0?83.0:49.0)
 
 
 #define ZF_IsIPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640,1136), [[UIScreen mainScreen] currentMode].size) : NO)
