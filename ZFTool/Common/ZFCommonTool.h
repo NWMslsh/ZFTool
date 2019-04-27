@@ -84,5 +84,8 @@
 //退出程序
 + (void)exitApplication;
 
-
+/**
+ 获取设备号
+ */
+- (NSString *)getUUID;
 @end

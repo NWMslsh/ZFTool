@@ -5,7 +5,11 @@
 
 #import "ZFCommonTool.h"
 #import "Define-header.h"
+#import "ZFKeyChain.h"
 
+
+#define ZF_Device_Service @"ZF_Device_Service"
+#define ZF_Device @"ZF_Device"
 @implementation ZFCommonTool
 #pragma mark - 文件
 /**
@@ -286,6 +290,39 @@
     }
     
     return currentVC;
+    
+}
+/**
+ 获取设备号
+ */
+- (NSString *)getUUID{
+    
+    NSString *device_uuid = [ZF_UserDefaults objectForKey:ZF_Device_UUID];
+    if (ZF_IsEmptyStr(device_uuid)) {
+        
+        NSMutableDictionary *readKeyChains = (NSMutableDictionary *)[ZFKeyChain load:ZF_Device_Service];
+        
+        if (readKeyChains[ZF_Device] == nil) {
+            
+            NSMutableDictionary *saveKeyChains = [NSMutableDictionary dictionary];
+            NSString *device_uuid = [NSString stringWithFormat:@"%@",[[[UIDevice currentDevice] identifierForVendor] UUIDString]];
+            saveKeyChains[ZF_Device] = device_uuid;
+            [ZFKeyChain save:ZF_Device_Service data:saveKeyChains];
+            [ZF_UserDefaults setObject:device_uuid forKey:ZF_Device_UUID];
+        }
+        else
+        {
+            [ZF_UserDefaults setObject:readKeyChains[ZF_Device] forKey:ZF_Device_UUID];
+        }
+        [ZF_UserDefaults synchronize];
+        
+    }
+    return device_uuid;
+    
+    
+    
+        
+    
     
 }
 @end

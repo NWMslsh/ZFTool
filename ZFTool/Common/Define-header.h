@@ -7,7 +7,7 @@
 //
 #define ZF_Phone_Number @"0123456789-"
 #define ZF_PaasWord_Number @"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_"
-
+#define ZF_Device_UUID @"ZF_Device_Number"
 
 //机型
 #define ZF_ScreenH [UIScreen mainScreen].bounds.size.height
