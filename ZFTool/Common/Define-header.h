@@ -16,7 +16,7 @@
 #define ZF_ScaleH ZF_ScreenH/667.0
 
 #define ZF_StatusH [UIApplication sharedApplication].statusBarFrame.size.height
-#define ZF_NavH  self.navigationController.navigationBar.frame.size.height
+#define ZF_NavH  44
 #define ZF_StatusHAndNavH ZF_StatusH + ZF_NavH
 #define ZF_TabbarH (ZF_StatusH > 20.0?83.0:49.0)
 
@@ -39,10 +39,9 @@
 #define  ZF_IsEmptyStr(string) string == nil || string == NULL ||[string isKindOfClass:[NSNull class]]|| [string isEqualToString:@""] ||[[string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] length]==0 ? YES : NO
 
 
-#define DEFINE_EVENT(EVENT) static NSString* EVENT = @#EVENT;
+
 
 #define ZF_UserDefaults [NSUserDefaults standardUserDefaults]
-
 #define ZF_FileManager [NSFileManager defaultManager]
 
 #define ZF_WeakSelf(type)  __weak typeof(type) weak##type = type;
@@ -64,7 +63,7 @@
 
 #ifdef DEBUG
 #define ZFLOG(...)  printf("%s <line:%d> %s\n", __FUNCTION__,__LINE__,[[NSString stringWithFormat:__VA_ARGS__] UTF8String])
-#define MCULOG(...)  printf("%s\n",[[NSString stringWithFormat:__VA_ARGS__] UTF8String])
+#define MCULOG(fmt, ...) {NSLog((fmt), ##__VA_ARGS__);}
 
 #else
 
@@ -104,3 +103,9 @@ return _instance;\
 
 
 #define ZF_RemNotication(name) [[NSNotificationCenter defaultCenter] removeObserver:self name:name object:nil];
+
+
+
+#define DEFINE_EVENT(EVENT) static NSString* EVENT = @#EVENT;
+//语音改变
+DEFINE_EVENT(AppLanguageChange_Notication)

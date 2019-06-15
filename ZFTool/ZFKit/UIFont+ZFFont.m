@@ -8,6 +8,7 @@
 
 #import "UIFont+ZFFont.h"
 #import "Define-header.h"
+#import "ZFAppLanguage.h"
 //UIFontWeightUltraLight  - 超细字体
 //
 //UIFontWeightThin  - 纤细字体
@@ -44,12 +45,32 @@ static NSString *FontWeight_Semibold = @"Semibold";
 
 @implementation UIFont (ZFFont)
 
+
++ (NSString *)getFamily:(CGFloat)size{
+    
+    if (ZFAppLanguage.language == Lan_ZH) {
+        return FontFamily_PingFangSC;
+    }
+    else
+    {
+        if (size >= 19) {
+            return FontFamily_SFUIDisplay;
+        }
+        return FontFamily_SFUIText;
+    }
+    
+}
 /**
  字体大小
  */
 + (UIFont *)Size:(CGFloat)size{
     
-    return [self getFontBy:FontFamily_PingFangSC andWeight:FontWeight_Regular andSize:size];
+    NSString *Family = [self getFamily:size];
+    if ([Family isEqualToString:FontFamily_PingFangSC]) {
+        return [self getFontBy:Family andWeight:FontWeight_Regular andSize:size];
+    }
+    return [self getFontBy:Family andWeight:nil andSize:size];
+    
 }
 
 /**
@@ -57,7 +78,7 @@ static NSString *FontWeight_Semibold = @"Semibold";
  */
 + (UIFont *)HBSize:(CGFloat)size{
     
-    return [self getFontBy:FontFamily_PingFangSC andWeight:FontWeight_Medium andSize:size];
+    return [self getFontBy:[self getFamily:size] andWeight:FontWeight_Medium andSize:size];
 }
 
 /**
@@ -65,47 +86,9 @@ static NSString *FontWeight_Semibold = @"Semibold";
  */
 + (UIFont *)BSize:(CGFloat)size{
     
-    return [self getFontBy:FontFamily_PingFangSC andWeight:FontWeight_Semibold andSize:size];
+    return [self getFontBy:[self getFamily:size] andWeight:FontWeight_Semibold andSize:size];
 }
 
-/**
- 普通字en
- */
-+ (UIFont *)SizeEn:(CGFloat)size{
-    
-    
-    if (size > 19) {
-        return [self getFontBy:FontFamily_SFUIDisplay andWeight:nil andSize:size];
-    }
-    
-    
-    return [self getFontBy:FontFamily_SFUIText andWeight:nil andSize:size];
-    
-}
-
-/**
- 半粗字体
- */
-+ (UIFont *)HBSizeEn:(CGFloat)size{
-    if (size > 19) {
-        return [self getFontBy:FontFamily_SFUIDisplay andWeight:FontWeight_Medium andSize:size];
-    }
-    
-    return [self getFontBy:FontFamily_SFUIText andWeight:FontWeight_Medium andSize:size];
-}
-
-/**
- 粗字体
- */
-+ (UIFont *)BSizeEn:(CGFloat)size{
-    
-    if (size > 19) {
-        return [self getFontBy:FontFamily_SFUIDisplay andWeight:FontWeight_Semibold andSize:size];
-    }
-    
-    
-    return [self getFontBy:FontFamily_SFUIText andWeight:FontWeight_Semibold andSize:size];
-}
 //获取字体
 + (UIFont *)getFontBy:(NSString *)familyStr andWeight:(NSString *)weight andSize:(CGFloat)size{
     

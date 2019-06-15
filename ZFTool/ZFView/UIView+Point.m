@@ -10,7 +10,11 @@
 #import "UIView+Point.h"
 
 @implementation UIView (Point)
-
++ (UIView *(^)(void))zf_init{
+    return ^(){
+        return [[self alloc]init];
+    };
+}
 
 - (UIView *(^)(CGFloat x,CGFloat y,CGFloat width,CGFloat height))zf_frame{
     return ^(CGFloat x,CGFloat y,CGFloat width,CGFloat height){
@@ -41,7 +45,7 @@
 @implementation UIButton (Point)
 + (UIButton *(^)(void))zf_init{
     return ^(){
-        return [[UIButton alloc]init];
+        return [[self alloc]init];
         
     };
 }
@@ -51,7 +55,15 @@
         return self;
     };
 }
-- (UIButton *(^)(NSString *title,UIControlState state))zf_text{
+- (UIButton *(^)(NSString *title))zf_text{
+    
+    return ^(NSString *title){
+        
+        [self setTitle:title forState:UIControlStateNormal];
+        return self;
+    };
+}
+- (UIButton *(^)(NSString *title,UIControlState state))zf_textBySate{
     
     return ^(NSString *title,UIControlState state){
         
@@ -76,13 +88,29 @@
 /**
  image
  */
-- (UIButton *(^)(UIImage *img,UIControlState state))zf_img{
+- (UIButton *(^)(UIImage *img))zf_img{
+    return ^(UIImage *img){
+        [self setImage:img forState:UIControlStateNormal];
+        return self;
+    };
+}
+- (UIButton *(^)(UIImage *img,UIControlState state))zf_imgBySate{
     return ^(UIImage *img,UIControlState state){
         [self setImage:img forState:state];
         return self;
     };
 }
-- (UIButton *(^)(UIImage *img,UIControlState state))zf_bgImg{
+
+/**
+ BGImg
+ */
+- (UIButton *(^)(UIImage *img))zf_bgImg{
+    return ^(UIImage *img){
+        [self setBackgroundImage:img forState:UIControlStateNormal];
+        return self;
+    };
+}
+- (UIButton *(^)(UIImage *img,UIControlState state))zf_bgImgBySate{
     return ^(UIImage *img,UIControlState state){
         [self setBackgroundImage:img forState:state];
         return self;
@@ -95,8 +123,7 @@
 + (UILabel *(^)(void))zf_init
 {
     return ^(){
-        return [[UILabel alloc]init];
-        
+        return [[self alloc]init];
     };
 }
 - (UILabel *(^)(UIFont *font))zf_Font

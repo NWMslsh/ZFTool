@@ -27,17 +27,6 @@
  */
 + (UIFont *)BSize:(CGFloat)size;
 
-/**
- 普通字en
- */
-+ (UIFont *)SizeEn:(CGFloat)size;
-/**
- 半粗字体en
- */
-+ (UIFont *)HBSizeEn:(CGFloat)size;
-/**
- 粗字体
- */
-+ (UIFont *)BSizeEn:(CGFloat)size;
+
 
 @end

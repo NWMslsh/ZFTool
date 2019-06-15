@@ -37,5 +37,5 @@ FOUNDATION_EXPORT const unsigned char ZFToolVersionString[];
 // Common
 #import "ZFCommonTool.h"
 #import "ZFToast.h"
-#import "ZFAlert.h"
+#import "ZFAppLanguage.h"
 

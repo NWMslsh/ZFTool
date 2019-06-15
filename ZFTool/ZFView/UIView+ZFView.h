@@ -54,5 +54,6 @@ typedef void (^ViewCallBackBlock)(id data);
  @return return str
  */
 + (CGFloat)getLableWidth:(NSString *)str font:(UIFont *)font;
-
++ (void)p_changeMultiplierOfConstraint:(NSLayoutConstraint *)constraint multiplier:(CGFloat)multiplier;
+- (void)drawPointLineRect:(CGRect)rect color:(UIColor *)color;
 @end

@@ -170,6 +170,31 @@
     imageView.image = UIGraphicsGetImageFromCurrentImageContext();
     return imageView;
 }
+
+- (void)drawPointLineRect:(CGRect)rect color:(UIColor *)color
+{
+    CAShapeLayer *shapeLayer = [CAShapeLayer layer];
+    [shapeLayer setBounds:rect];
+    [shapeLayer setPosition:CGPointMake(CGRectGetWidth(self.frame) / 2, CGRectGetHeight(self.frame)/2)];
+    
+    [shapeLayer setStrokeColor:color.CGColor];
+    [shapeLayer setLineWidth:0.5];
+    //  设置线宽，线间距
+    [shapeLayer setLineDashPattern:@[@5,@3]];
+    //  设置路径
+    CGMutablePathRef path = CGPathCreateMutable();
+    CGPathMoveToPoint(path, NULL, 0, 0);
+    if (CGRectGetWidth(self.frame) > CGRectGetHeight(self.frame)) {
+        CGPathAddLineToPoint(path, NULL, CGRectGetWidth(self.frame),0);
+    }else{
+        CGPathAddLineToPoint(path, NULL, 0,CGRectGetHeight(self.frame));
+    }
+    [shapeLayer setPath:path];
+    CGPathRelease(path);
+    
+    //  把绘制好的虚线添加上来
+    [self.layer addSublayer:shapeLayer];
+}
 /**
  获取label高度
 
@@ -195,5 +220,13 @@
     return textSize.width + 10;
 }
 
-
++ (void)p_changeMultiplierOfConstraint:(NSLayoutConstraint *)constraint multiplier:(CGFloat)multiplier {
+    
+    [NSLayoutConstraint deactivateConstraints:@[constraint]];
+    NSLayoutConstraint *newConstraint = [NSLayoutConstraint constraintWithItem:constraint.firstItem attribute:constraint.firstAttribute relatedBy:constraint.relation toItem:constraint.secondItem attribute:constraint.secondAttribute multiplier:multiplier constant:constraint.constant];
+    newConstraint.priority = constraint.priority;
+    newConstraint.shouldBeArchived = constraint.shouldBeArchived;
+    newConstraint.identifier = constraint.identifier;
+    [NSLayoutConstraint activateConstraints:@[newConstraint]];
+}
 @end

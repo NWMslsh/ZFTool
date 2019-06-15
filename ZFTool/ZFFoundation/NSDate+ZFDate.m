@@ -180,4 +180,12 @@
     NSDate *myDate = [dateFmt dateFromString:dateStr];
     return myDate.toTimeStampByMS;
 }
+//NSDate日期比较，是否是同一天，同一月，同一年
++ (BOOL)checkDate:(NSDate*)date1 WithDate:(NSDate*)date2{
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    unsigned unitFlag = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay;
+    NSDateComponents *comp1 = [calendar components:unitFlag fromDate:date1];
+    NSDateComponents *comp2 = [calendar components:unitFlag fromDate:date2];
+    return (([comp1 day] == [comp2 day]) && ([comp1 month] == [comp2 month]) && ([comp1 year] == [comp2 year]));
+}
 @end

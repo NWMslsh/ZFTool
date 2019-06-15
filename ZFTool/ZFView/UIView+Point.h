@@ -10,8 +10,7 @@
 #import <UIKit/UIKit.h>
 
 @interface UIView (Point)
-
-
++ (UIView *(^)(void))zf_init;
 /**
  frame
  */
@@ -25,8 +24,6 @@
 
 
 @interface UIButton (Point)
-
-
 /**
  title font
  */
@@ -37,10 +34,10 @@
  */
 - (UIButton *(^)(UIColor *color,UIControlState state))zf_textColor;
 
-/**
- title
- */
-- (UIButton *(^)(NSString *title,UIControlState state))zf_text;
+
+// 设置文字
+- (UIButton *(^)(NSString *title))zf_text;
+- (UIButton *(^)(NSString *title,UIControlState state))zf_textBySate;
 
 /**
  bgColor
@@ -49,11 +46,13 @@
 /**
  image
  */
-- (UIButton *(^)(UIImage *img,UIControlState state))zf_img;
+- (UIButton *(^)(UIImage *img))zf_img;
+- (UIButton *(^)(UIImage *img,UIControlState state))zf_imgBySate;
 /**
  bg image
  */
-- (UIButton *(^)(UIImage *img,UIControlState state))zf_bgImg;
+- (UIButton *(^)(UIImage *img))zf_bgImg;
+- (UIButton *(^)(UIImage *img,UIControlState state))zf_bgImgBySate;
 @end
 @interface UILabel (Point)
 

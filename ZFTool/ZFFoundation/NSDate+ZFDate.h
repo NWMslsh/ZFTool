@@ -104,4 +104,6 @@
 - (NSString *)toTimeStampByMS;
 
 +(NSString *)getTimerInterval:(NSString *)dateStr;
+//NSDate日期比较，是否是同一天，同一月，同一年
++ (BOOL)checkDate:(NSDate*)date1 WithDate:(NSDate*)date2;
 @end

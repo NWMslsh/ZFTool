@@ -21,13 +21,11 @@
 		2340C3E521E5EE1000AB18B7 /* NSDate+ZFDate.h in Headers */ = {isa = PBXBuildFile; fileRef = 2340C3C621E5EE1000AB18B7 /* NSDate+ZFDate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2340C3E621E5EE1000AB18B7 /* NSString+ZFString.m in Sources */ = {isa = PBXBuildFile; fileRef = 2340C3C721E5EE1000AB18B7 /* NSString+ZFString.m */; };
 		2340C3E721E5EE1000AB18B7 /* NSDate+ZFDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2340C3C821E5EE1000AB18B7 /* NSDate+ZFDate.m */; };
-		2340C3E821E5EE1000AB18B7 /* ZFAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 2340C3CA21E5EE1000AB18B7 /* ZFAlert.m */; };
 		2340C3E921E5EE1000AB18B7 /* ZFToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 2340C3CB21E5EE1000AB18B7 /* ZFToast.m */; };
 		2340C3EA21E5EE1000AB18B7 /* ZFDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2340C3CC21E5EE1000AB18B7 /* ZFDBManager.m */; };
 		2340C3EB21E5EE1000AB18B7 /* ZFCommonTool.h in Headers */ = {isa = PBXBuildFile; fileRef = 2340C3CD21E5EE1000AB18B7 /* ZFCommonTool.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2340C3EC21E5EE1000AB18B7 /* NSNull+ZFNull.m in Sources */ = {isa = PBXBuildFile; fileRef = 2340C3CE21E5EE1000AB18B7 /* NSNull+ZFNull.m */; };
 		2340C3ED21E5EE1000AB18B7 /* ZFToast.h in Headers */ = {isa = PBXBuildFile; fileRef = 2340C3CF21E5EE1000AB18B7 /* ZFToast.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2340C3EE21E5EE1000AB18B7 /* ZFAlert.h in Headers */ = {isa = PBXBuildFile; fileRef = 2340C3D021E5EE1000AB18B7 /* ZFAlert.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2340C3EF21E5EE1000AB18B7 /* Define-header.h in Headers */ = {isa = PBXBuildFile; fileRef = 2340C3D121E5EE1000AB18B7 /* Define-header.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2340C3F021E5EE1000AB18B7 /* ZFCommonTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2340C3D221E5EE1000AB18B7 /* ZFCommonTool.m */; };
 		2340C3F121E5EE1000AB18B7 /* ZFDBManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 2340C3D321E5EE1000AB18B7 /* ZFDBManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -38,12 +36,14 @@
 		2340C3F821E5EE1000AB18B7 /* ZFCardView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2340C3DC21E5EE1000AB18B7 /* ZFCardView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2340C3F921E5EE1000AB18B7 /* UIView+Animation.h in Headers */ = {isa = PBXBuildFile; fileRef = 2340C3DD21E5EE1000AB18B7 /* UIView+Animation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		467BECBD2273EF9700BAAA94 /* ZFKeyChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 467BECBB2273EF9700BAAA94 /* ZFKeyChain.m */; };
-		467BECBE2273EF9700BAAA94 /* ZFKeyChain.h in Headers */ = {isa = PBXBuildFile; fileRef = 467BECBC2273EF9700BAAA94 /* ZFKeyChain.h */; };
+		467BECBE2273EF9700BAAA94 /* ZFKeyChain.h in Headers */ = {isa = PBXBuildFile; fileRef = 467BECBC2273EF9700BAAA94 /* ZFKeyChain.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		467BECC12273F19B00BAAA94 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 467BECC02273F19B00BAAA94 /* Security.framework */; };
-		46B1001A223CDB79008FE3BB /* NSDictionary+ZFDic.h in Headers */ = {isa = PBXBuildFile; fileRef = 46B10018223CDB79008FE3BB /* NSDictionary+ZFDic.h */; };
+		46B1001A223CDB79008FE3BB /* NSDictionary+ZFDic.h in Headers */ = {isa = PBXBuildFile; fileRef = 46B10018223CDB79008FE3BB /* NSDictionary+ZFDic.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		46B1001B223CDB79008FE3BB /* NSDictionary+ZFDic.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B10019223CDB79008FE3BB /* NSDictionary+ZFDic.m */; };
-		46B1001E223CE230008FE3BB /* UIView+Point.h in Headers */ = {isa = PBXBuildFile; fileRef = 46B1001C223CE230008FE3BB /* UIView+Point.h */; };
+		46B1001E223CE230008FE3BB /* UIView+Point.h in Headers */ = {isa = PBXBuildFile; fileRef = 46B1001C223CE230008FE3BB /* UIView+Point.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		46B1001F223CE230008FE3BB /* UIView+Point.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B1001D223CE230008FE3BB /* UIView+Point.m */; };
+		46C2744D22B4DEDE008DB701 /* ZFAppLanguage.h in Headers */ = {isa = PBXBuildFile; fileRef = 46C2744B22B4DEDE008DB701 /* ZFAppLanguage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		46C2744E22B4DEDE008DB701 /* ZFAppLanguage.m in Sources */ = {isa = PBXBuildFile; fileRef = 46C2744C22B4DEDE008DB701 /* ZFAppLanguage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,13 +74,11 @@
 		2340C3C621E5EE1000AB18B7 /* NSDate+ZFDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+ZFDate.h"; sourceTree = "<group>"; };
 		2340C3C721E5EE1000AB18B7 /* NSString+ZFString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ZFString.m"; sourceTree = "<group>"; };
 		2340C3C821E5EE1000AB18B7 /* NSDate+ZFDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+ZFDate.m"; sourceTree = "<group>"; };
-		2340C3CA21E5EE1000AB18B7 /* ZFAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFAlert.m; sourceTree = "<group>"; };
 		2340C3CB21E5EE1000AB18B7 /* ZFToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFToast.m; sourceTree = "<group>"; };
 		2340C3CC21E5EE1000AB18B7 /* ZFDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFDBManager.m; sourceTree = "<group>"; };
 		2340C3CD21E5EE1000AB18B7 /* ZFCommonTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFCommonTool.h; sourceTree = "<group>"; };
 		2340C3CE21E5EE1000AB18B7 /* NSNull+ZFNull.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNull+ZFNull.m"; sourceTree = "<group>"; };
 		2340C3CF21E5EE1000AB18B7 /* ZFToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFToast.h; sourceTree = "<group>"; };
-		2340C3D021E5EE1000AB18B7 /* ZFAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFAlert.h; sourceTree = "<group>"; };
 		2340C3D121E5EE1000AB18B7 /* Define-header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Define-header.h"; sourceTree = "<group>"; };
 		2340C3D221E5EE1000AB18B7 /* ZFCommonTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFCommonTool.m; sourceTree = "<group>"; };
 		2340C3D321E5EE1000AB18B7 /* ZFDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFDBManager.h; sourceTree = "<group>"; };
@@ -97,6 +95,8 @@
 		46B10019223CDB79008FE3BB /* NSDictionary+ZFDic.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+ZFDic.m"; sourceTree = "<group>"; };
 		46B1001C223CE230008FE3BB /* UIView+Point.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Point.h"; sourceTree = "<group>"; };
 		46B1001D223CE230008FE3BB /* UIView+Point.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Point.m"; sourceTree = "<group>"; };
+		46C2744B22B4DEDE008DB701 /* ZFAppLanguage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFAppLanguage.h; sourceTree = "<group>"; };
+		46C2744C22B4DEDE008DB701 /* ZFAppLanguage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFAppLanguage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,11 +174,11 @@
 			isa = PBXGroup;
 			children = (
 				2340C3BE21E5EE1000AB18B7 /* UIFont+ZFFont.h */,
-				2340C3BF21E5EE1000AB18B7 /* UIColor+ZFColor.m */,
-				2340C3C021E5EE1000AB18B7 /* UIImage+ZFImage.m */,
 				2340C3C121E5EE1000AB18B7 /* UIFont+ZFFont.m */,
 				2340C3C221E5EE1000AB18B7 /* UIColor+ZFColor.h */,
+				2340C3BF21E5EE1000AB18B7 /* UIColor+ZFColor.m */,
 				2340C3C321E5EE1000AB18B7 /* UIImage+ZFImage.h */,
+				2340C3C021E5EE1000AB18B7 /* UIImage+ZFImage.m */,
 			);
 			path = ZFKit;
 			sourceTree = "<group>";
@@ -201,14 +201,13 @@
 		2340C3C921E5EE1000AB18B7 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				46C2744A22B4DEDE008DB701 /* AppLanguage */,
 				2340C3D121E5EE1000AB18B7 /* Define-header.h */,
-				2340C3D021E5EE1000AB18B7 /* ZFAlert.h */,
-				2340C3CA21E5EE1000AB18B7 /* ZFAlert.m */,
+				2340C3CE21E5EE1000AB18B7 /* NSNull+ZFNull.m */,
 				2340C3CF21E5EE1000AB18B7 /* ZFToast.h */,
 				2340C3CB21E5EE1000AB18B7 /* ZFToast.m */,
 				2340C3D321E5EE1000AB18B7 /* ZFDBManager.h */,
 				2340C3CC21E5EE1000AB18B7 /* ZFDBManager.m */,
-				2340C3CE21E5EE1000AB18B7 /* NSNull+ZFNull.m */,
 				2340C3CD21E5EE1000AB18B7 /* ZFCommonTool.h */,
 				2340C3D221E5EE1000AB18B7 /* ZFCommonTool.m */,
 			);
@@ -230,6 +229,16 @@
 			path = ZFView;
 			sourceTree = "<group>";
 		};
+		46C2744A22B4DEDE008DB701 /* AppLanguage */ = {
+			isa = PBXGroup;
+			children = (
+				46C2744B22B4DEDE008DB701 /* ZFAppLanguage.h */,
+				46C2744C22B4DEDE008DB701 /* ZFAppLanguage.m */,
+			);
+			name = AppLanguage;
+			path = ZFTool/AppLanguage;
+			sourceTree = SOURCE_ROOT;
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -239,11 +248,7 @@
 			files = (
 				2340C3E421E5EE1000AB18B7 /* NSString+ZFString.h in Headers */,
 				2340C3DE21E5EE1000AB18B7 /* UIFont+ZFFont.h in Headers */,
-				46B1001E223CE230008FE3BB /* UIView+Point.h in Headers */,
 				2340C3ED21E5EE1000AB18B7 /* ZFToast.h in Headers */,
-				46B1001A223CDB79008FE3BB /* NSDictionary+ZFDic.h in Headers */,
-				2340C3EE21E5EE1000AB18B7 /* ZFAlert.h in Headers */,
-				467BECBE2273EF9700BAAA94 /* ZFKeyChain.h in Headers */,
 				2340C3F721E5EE1000AB18B7 /* UIView+ZFView.h in Headers */,
 				2340C3F921E5EE1000AB18B7 /* UIView+Animation.h in Headers */,
 				2340C3EF21E5EE1000AB18B7 /* Define-header.h in Headers */,
@@ -251,7 +256,11 @@
 				2340C3EB21E5EE1000AB18B7 /* ZFCommonTool.h in Headers */,
 				2340C3F121E5EE1000AB18B7 /* ZFDBManager.h in Headers */,
 				2340C3E521E5EE1000AB18B7 /* NSDate+ZFDate.h in Headers */,
+				46B1001E223CE230008FE3BB /* UIView+Point.h in Headers */,
+				46B1001A223CDB79008FE3BB /* NSDictionary+ZFDic.h in Headers */,
+				467BECBE2273EF9700BAAA94 /* ZFKeyChain.h in Headers */,
 				2340C3E321E5EE1000AB18B7 /* UIImage+ZFImage.h in Headers */,
+				46C2744D22B4DEDE008DB701 /* ZFAppLanguage.h in Headers */,
 				2340C3B121E5EDA300AB18B7 /* ZFTool.h in Headers */,
 				2340C3F821E5EE1000AB18B7 /* ZFCardView.h in Headers */,
 			);
@@ -353,7 +362,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2340C3E821E5EE1000AB18B7 /* ZFAlert.m in Sources */,
 				2340C3F621E5EE1000AB18B7 /* UIView+Animation.m in Sources */,
 				2340C3EA21E5EE1000AB18B7 /* ZFDBManager.m in Sources */,
 				467BECBD2273EF9700BAAA94 /* ZFKeyChain.m in Sources */,
@@ -365,6 +373,7 @@
 				46B1001F223CE230008FE3BB /* UIView+Point.m in Sources */,
 				2340C3EC21E5EE1000AB18B7 /* NSNull+ZFNull.m in Sources */,
 				2340C3E721E5EE1000AB18B7 /* NSDate+ZFDate.m in Sources */,
+				46C2744E22B4DEDE008DB701 /* ZFAppLanguage.m in Sources */,
 				2340C3DF21E5EE1000AB18B7 /* UIColor+ZFColor.m in Sources */,
 				2340C3E921E5EE1000AB18B7 /* ZFToast.m in Sources */,
 				2340C3E021E5EE1000AB18B7 /* UIImage+ZFImage.m in Sources */,
@@ -521,6 +530,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = ZFTool/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -545,6 +555,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = ZFTool/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
