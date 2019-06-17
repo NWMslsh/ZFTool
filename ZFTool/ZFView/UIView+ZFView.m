@@ -8,7 +8,7 @@
 
 #import "UIView+ZFView.h"
 #import "UIView+Point.h"
-#import "Define-header.h"
+
 @implementation UIView (ZFView)
 #pragma mark X
 - (void)setX:(CGFloat)x
@@ -230,52 +230,5 @@
     newConstraint.identifier = constraint.identifier;
     [NSLayoutConstraint activateConstraints:@[newConstraint]];
 }
-#pragma mark clickAction
-DEFINE_EVENT(Click_block_key)
-DEFINE_EVENT(Click_tap_key)
-/**
- 添加点击事件
- */
-- (void)addClickAction:(ViewCallBackBlock)block{
-    self.clickBlock  = block;
-    
-    self.userInteractionEnabled = YES;
-    
-    /**
-     *  添加相同事件方法，，先将原来的事件移除，避免重复调用
-     */
-    NSMutableArray *taps = [self allUIViewBlockTaps];
-    [taps enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        UITapGestureRecognizer *tap = (UITapGestureRecognizer *)obj;
-        [self removeGestureRecognizer:tap];
-    }];
-    [taps removeAllObjects];
-    
-    
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(invoke:)];
-    [self addGestureRecognizer:tap];
-    [taps addObject:tap];
-}
-- (void)invoke:(id)sender
-{
-    ZF_BLOCK_EXEC(self.clickBlock,nil);
-}
 
-- (NSMutableArray *)allUIViewBlockTaps
-{
-    NSMutableArray *taps = objc_getAssociatedObject(self, &Click_tap_key);
-    if (!taps) {
-        taps = [NSMutableArray array];
-        objc_setAssociatedObject(self, &Click_block_key, taps, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    }
-    return taps;
-}
-- (void)setClickBlock:(ViewCallBackBlock)clickBlock{
-    objc_setAssociatedObject(self, &Click_block_key, clickBlock, OBJC_ASSOCIATION_COPY);
-}
-
-- (ViewCallBackBlock)touchCallBackBlock
-{
-    return objc_getAssociatedObject(self, &Click_block_key);
-}
 @end

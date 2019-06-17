@@ -8,7 +8,7 @@
 //  copy from https://github.com/chenfengxiaoxixi/TextSpecLib
 
 #import <UIKit/UIKit.h>
-
+typedef void (^ViewCallBackBlock)(id data);
 @interface UIView (Point)
 + (UIView *(^)(void))zf_init;
 /**
@@ -20,6 +20,16 @@
  背景颜色
  */
 - (UIView *(^)(UIColor *color))zf_bgColor;
+/**
+ 添加到View上
+ */
+- (UIView *(^)(UIView *superV))zf_addToView;
+
+/**
+ 添加点击方法
+ */
+- (UIView *(^)(ViewCallBackBlock clickblock))zf_addClick;
+@property (copy , nonatomic)ViewCallBackBlock clickBlock;
 @end
 
 

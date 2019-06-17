@@ -8,6 +8,7 @@
 //  copy from https://github.com/chenfengxiaoxixi/TextSpecLib
 
 #import "UIView+Point.h"
+#import "Define-header.h"
 #pragma mark UIView
 @implementation UIView (Point)
 + (UIView *(^)(void))zf_init{
@@ -39,6 +40,64 @@
     };
     
     
+}
+/**
+ 添加到View上
+ */
+- (UIView *(^)(UIView *superV))zf_addToView{
+    return ^(UIView *superV){
+        [superV addSubview:self];
+        return self;
+    };
+}
+#pragma mark clickAction
+DEFINE_EVENT(Click_block_key)
+DEFINE_EVENT(Click_tap_key)
+/**
+ 添加点击方法
+ */
+- (UIView *(^)(ViewCallBackBlock clickblock))zf_addClick{
+    return ^(ViewCallBackBlock clickblock){
+        self.userInteractionEnabled = YES;
+        
+        /**
+         *  添加相同事件方法，，先将原来的事件移除，避免重复调用
+         */
+        NSMutableArray *taps = [self allUIViewBlockTaps];
+        [taps enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            UITapGestureRecognizer *tap = (UITapGestureRecognizer *)obj;
+            [self removeGestureRecognizer:tap];
+        }];
+        [taps removeAllObjects];
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(invoke:)];
+        [self addGestureRecognizer:tap];
+        [taps addObject:tap];
+        
+        self.clickBlock = clickblock;
+        return self;
+    };
+}
+- (void)invoke:(id)sender
+{
+    ZF_BLOCK_EXEC(self.clickBlock,nil);
+}
+
+- (NSMutableArray *)allUIViewBlockTaps
+{
+    NSMutableArray *taps = objc_getAssociatedObject(self, &Click_tap_key);
+    if (!taps) {
+        taps = [NSMutableArray array];
+        objc_setAssociatedObject(self, &Click_block_key, taps, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+    return taps;
+}
+- (void)setClickBlock:(ViewCallBackBlock)clickBlock{
+    objc_setAssociatedObject(self, &Click_block_key, clickBlock, OBJC_ASSOCIATION_COPY);
+}
+
+- (ViewCallBackBlock)clickBlock
+{
+    return objc_getAssociatedObject(self, &Click_block_key);
 }
 @end
 #pragma mark UIButton

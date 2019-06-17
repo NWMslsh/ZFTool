@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void (^ViewCallBackBlock)(id data);
+
 
 @interface UIView (ZFView)
 @property (nonatomic, assign) CGFloat x;
