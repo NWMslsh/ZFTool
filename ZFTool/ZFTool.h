@@ -31,7 +31,6 @@ FOUNDATION_EXPORT const unsigned char ZFToolVersionString[];
 // ZFFoundation
 #import "NSString+ZFString.h"
 #import "NSDate+ZFDate.h"
-#import "NSDictionary+ZFDic.h"
 #import "NSObject+ZFObject.h"
 #import "ZFResult.h"
 // Common

@@ -24,6 +24,7 @@
 
 
 @interface UIButton (Point)
++ (UIButton *(^)(void))zf_init;
 /**
  title font
  */
@@ -32,12 +33,13 @@
 /**
  title color
  */
-- (UIButton *(^)(UIColor *color,UIControlState state))zf_textColor;
+- (UIButton *(^)(UIColor *color))zf_textColor;
+- (UIButton *(^)(UIColor *color,UIControlState state))zf_textColorByState;
 
 
 // 设置文字
 - (UIButton *(^)(NSString *title))zf_text;
-- (UIButton *(^)(NSString *title,UIControlState state))zf_textBySate;
+- (UIButton *(^)(NSString *title,UIControlState state))zf_textByState;
 
 /**
  bgColor
@@ -47,16 +49,16 @@
  image
  */
 - (UIButton *(^)(UIImage *img))zf_img;
-- (UIButton *(^)(UIImage *img,UIControlState state))zf_imgBySate;
+- (UIButton *(^)(UIImage *img,UIControlState state))zf_imgByState;
 /**
  bg image
  */
 - (UIButton *(^)(UIImage *img))zf_bgImg;
-- (UIButton *(^)(UIImage *img,UIControlState state))zf_bgImgBySate;
+- (UIButton *(^)(UIImage *img,UIControlState state))zf_bgImgByState;
 @end
 @interface UILabel (Point)
 
-
++ (UILabel *(^)(void))zf_init;
 /**
  font
  */

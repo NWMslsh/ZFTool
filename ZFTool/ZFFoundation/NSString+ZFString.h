@@ -45,25 +45,6 @@
  */
 - (BOOL)hasChinese;
 
-#pragma mark -商场价格
-/**
- 获取价格
- 
- @param nowPrice 现价
- @param lastPrice 原价
- @return 价格
- */
-+ (NSAttributedString *)getPriceTextWithNow:(NSString *)nowPrice andLast:(NSString *)lastPrice;
-
-/**
- 原价划线
- 
- @param price 价格
- @return 划线价格
- */
-+ (NSAttributedString *)getOriginalPrice:(NSString *)price;
-
-
 /**
  千分位
  */

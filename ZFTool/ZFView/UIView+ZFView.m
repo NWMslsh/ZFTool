@@ -229,4 +229,9 @@
     newConstraint.identifier = constraint.identifier;
     [NSLayoutConstraint activateConstraints:@[newConstraint]];
 }
+#pragma mark clickAction
+/**
+ 添加点击事件
+ */
+- (void)addClickAction:(ViewCallBackBlock)block{}
 @end

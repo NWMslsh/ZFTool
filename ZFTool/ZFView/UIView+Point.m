@@ -8,7 +8,7 @@
 //  copy from https://github.com/chenfengxiaoxixi/TextSpecLib
 
 #import "UIView+Point.h"
-
+#pragma mark UIView
 @implementation UIView (Point)
 + (UIView *(^)(void))zf_init{
     return ^(){
@@ -38,10 +38,10 @@
         return self;
     };
     
-   
+    
 }
 @end
-
+#pragma mark UIButton
 @implementation UIButton (Point)
 + (UIButton *(^)(void))zf_init{
     return ^(){
@@ -63,7 +63,7 @@
         return self;
     };
 }
-- (UIButton *(^)(NSString *title,UIControlState state))zf_textBySate{
+- (UIButton *(^)(NSString *title,UIControlState state))zf_textByState{
     
     return ^(NSString *title,UIControlState state){
         
@@ -71,14 +71,22 @@
         return self;
     };
 }
-- (UIButton *(^)(UIColor *color,UIControlState state))zf_textColor{
- 
+- (UIButton *(^)(UIColor *color))zf_textColor{
+    return ^(UIColor *color){
+        
+        [self setTitleColor:color forState:UIControlStateNormal];
+        return self;
+    };
+    
+}
+- (UIButton *(^)(UIColor *color,UIControlState state))zf_textColorByState{
     return ^(UIColor *color,UIControlState state){
         
         [self setTitleColor:color forState:state];
         return self;
     };
 }
+
 - (UIButton *(^)(UIColor *color))zf_bgColor{
     return ^(UIColor *color){
         [self setBackgroundColor:color];
@@ -94,7 +102,7 @@
         return self;
     };
 }
-- (UIButton *(^)(UIImage *img,UIControlState state))zf_imgBySate{
+- (UIButton *(^)(UIImage *img,UIControlState state))zf_imgByState{
     return ^(UIImage *img,UIControlState state){
         [self setImage:img forState:state];
         return self;
@@ -110,7 +118,7 @@
         return self;
     };
 }
-- (UIButton *(^)(UIImage *img,UIControlState state))zf_bgImgBySate{
+- (UIButton *(^)(UIImage *img,UIControlState state))zf_bgImgByState{
     return ^(UIImage *img,UIControlState state){
         [self setBackgroundImage:img forState:state];
         return self;
@@ -118,7 +126,7 @@
 }
 
 @end
-
+#pragma mark UILabel
 @implementation UILabel (Point)
 + (UILabel *(^)(void))zf_init
 {

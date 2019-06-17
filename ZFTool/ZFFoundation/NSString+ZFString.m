@@ -198,34 +198,7 @@
     
     return returnValue;
 }
-#pragma mark -获取价格
-+ (NSAttributedString *)getPriceTextWithNow:(NSString *)nowPrice andLast:(NSString *)lastPrice{
-    
-    NSString *presentPrice = [NSString stringWithFormat:@"￥%@",nowPrice];
-    NSString *originalPrice = [NSString stringWithFormat:@"￥%@",lastPrice];
-    NSString *price = [NSString stringWithFormat:@"%@ %@",presentPrice,originalPrice];
-    
-    NSMutableAttributedString *newPrice = [[NSMutableAttributedString alloc] initWithString:price];
-    
-    NSRange range = NSMakeRange(presentPrice.length + 1, originalPrice.length);
-    [newPrice setAttributes:@{NSStrikethroughStyleAttributeName : @(NSUnderlineStyleSingle),NSBaselineOffsetAttributeName : @0,NSFontAttributeName:[UIFont systemFontOfSize:12.0],NSForegroundColorAttributeName:[UIColor lightGrayColor]}
-                      range:range];
-    
-    return newPrice;
-}
-#pragma mark -原价划线
-+ (NSAttributedString *)getOriginalPrice:(NSString *)price{
-    
-    
-    price = [NSString stringWithFormat:@"￥%@",price];
-    NSMutableAttributedString *newPrice = [[NSMutableAttributedString alloc] initWithString:price];
-    
-    NSRange range = [price rangeOfString:price];
-    
-    [newPrice setAttributes:@{NSStrikethroughStyleAttributeName : @(NSUnderlineStyleSingle),NSBaselineOffsetAttributeName : @0}
-                      range:range];
-    return newPrice;
-}
+
 
 /**
  千分位
