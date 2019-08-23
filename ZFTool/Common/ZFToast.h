@@ -11,4 +11,9 @@
 @interface ZFToast : UIView
 //出现
 + (void)showStatus:(NSString *)status;
+
+/**
+ 错误提示
+ */
++ (void)showCode:(NSInteger)code;
 @end

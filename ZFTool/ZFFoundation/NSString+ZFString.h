@@ -81,4 +81,14 @@
  是否包含
  */
 - (BOOL)isContainsString:(NSString *)sFind;
+
+/**
+ 密码过滤
+ @return true则不合规则
+ */
+- (BOOL)passrodFilter;
+
+
++ (NSString * (^)(int a))initInt;
++ (NSString * (^)(long a))initLong;
 @end

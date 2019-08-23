@@ -188,4 +188,58 @@
     NSDateComponents *comp2 = [calendar components:unitFlag fromDate:date2];
     return (([comp1 day] == [comp2 day]) && ([comp1 month] == [comp2 month]) && ([comp1 year] == [comp2 year]));
 }
+
+/**
+ timeFormat 时间戳转时间字符
+ format 为nil时 时间字符格式为yyyy-MM-dd HH:mm:ss
+ */
++ (NSString *(^)(NSString *timeStamp,NSString *format))zf_timeFormat{
+    return ^(NSString *timeStamp,NSString *format){
+        
+        NSTimeInterval seconds = [timeStamp doubleValue]/1000.0;
+        NSDate *myDate = [NSDate dateWithTimeIntervalSince1970:seconds];
+        NSDateFormatter *dateFmt = [self getFormatter:@"yyyy-MM-dd HH:mm:ss"];
+        NSString *gmtTimeStr = [dateFmt stringFromDate:myDate];
+        //默认零时区 转成手机系统时区
+        return [self changeDataStrWithStrInZero:gmtTimeStr];
+    };
+}
++(NSString *)changeDataStrWithStrInZero:(NSString*)zeroDataStr{
+    
+    NSDateFormatter *zeroDateFormat = [self getFormatter:@"yyyy-MM-dd HH:mm:ss"];
+    [zeroDateFormat setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
+    NSDate *zeroDate = [zeroDateFormat dateFromString:zeroDataStr];
+    
+    NSDateFormatter *localDateFormat = [self getFormatter:@"yyyy-MM-dd HH:mm:ss"];
+    [localDateFormat setTimeZone:[NSTimeZone systemTimeZone]];
+    NSString *localDateStr = [localDateFormat stringFromDate:zeroDate];
+    
+    return localDateStr;
+}
+/**
+ timeFormat 时间字符转时间戳
+ format 为nil时 时间字符格式为yyyy-MM-dd HH:mm:ss
+ */
++ (NSString *(^)(NSString *timeStr,NSString *format))zf_timeStrToTimeStamp{
+    return ^(NSString *timeStr,NSString *format){
+        
+        if (format == nil) {
+            format = @"yyyy-MM-dd HH:mm:ss";
+        }
+        NSDateFormatter *localFormat = [self getFormatter:format];
+        [localFormat setTimeZone:[NSTimeZone systemTimeZone]];
+        NSDate *localdate = [localFormat dateFromString:timeStr];
+        
+        
+        NSDateFormatter *zeroFormat = [self getFormatter:format];
+        [zeroFormat setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
+        NSDate *zeroDate = [zeroFormat dateFromString:[zeroFormat stringFromDate:localdate]];
+        
+        
+        NSString *zeroStr = [NSString stringWithFormat:@"%.f",zeroDate.timeIntervalSince1970*1000];
+        
+        
+        return zeroStr;
+    };
+}
 @end

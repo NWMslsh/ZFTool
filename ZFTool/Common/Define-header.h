@@ -5,7 +5,9 @@
 //  Created by fengz on 2018/7/25.
 //  Copyright © 2018年 FengZ. All rights reserved.
 //
+#define ZF_Number @"0123456789"
 #define ZF_Phone_Number @"0123456789-"
+#define ZF_Hex_Number @"ABCDEFabcdef0123456789"
 #define ZF_PaasWord_Number @"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_"
 #define ZF_Device_UUID @"ZF_Device_Number"
 

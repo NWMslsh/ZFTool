@@ -11,6 +11,7 @@
 #import <CommonCrypto/CommonDigest.h>
 #import <CommonCrypto/CommonCryptor.h>
 #import "NSData+ZFData.h"
+
 #define FileHashDefaultChunkSizeForReadingData 1024*8
 @implementation NSString (ZFString)
 
@@ -376,5 +377,32 @@ NSString *const kInitVector = @"BH-128ByteVector";
     }
     NSRange range = [self rangeOfString:sFind];
     return range.length != 0;
+}
+- (BOOL)passrodFilter{
+    if (self.length > 16) {
+        return true;
+    }
+    
+    NSCharacterSet *cs = [[NSCharacterSet characterSetWithCharactersInString:ZF_PaasWord_Number] invertedSet];
+    
+    NSString *filtered = [[self componentsSeparatedByCharactersInSet:cs] componentsJoinedByString:@""];
+    if (![self isEqualToString:filtered]) {
+        return true;
+    }
+    return false;
+}
+
++ (NSString * (^)(int a))initInt{
+    return ^(int a){
+        
+        return [NSString stringWithFormat:@"%d",a];
+    };
+}
++ (NSString * (^)(long a))initLong{
+    
+    return ^(long a){
+        
+        return [NSString stringWithFormat:@"%ld",a];
+    };
 }
 @end

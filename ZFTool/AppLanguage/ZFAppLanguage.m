@@ -92,7 +92,7 @@ static LanguageType appLanguage = Lan_EN;
     }
     else
     {
-        newLan ++;
+//        newLan ++;
     }
     [self setLanguage:newLan];
     

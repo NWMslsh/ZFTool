@@ -21,6 +21,10 @@ typedef void (^ViewCallBackBlock)(id data);
  */
 - (UIView *(^)(UIColor *color))zf_bgColor;
 /**
+ 设置圆角
+ */
+- (UIView *(^)(CGFloat radius))zf_radius;
+/**
  添加到View上
  */
 - (UIView *(^)(UIView *superV))zf_addToView;

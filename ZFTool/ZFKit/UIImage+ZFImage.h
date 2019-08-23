@@ -35,4 +35,8 @@
 - (UIImage*)imagescaledToSize:(CGSize)newSize;
 
 - (void)imageWihtSize:(CGSize)size radius:(CGFloat)radius backColor:(UIColor *)backColor completion:(void(^)(UIImage *image))completion;
+/**
+ 生成二维码图片
+ */
++ (UIImage *)GenerateQrCode:(NSString *)codeResult andSize:(CGFloat)imageWidth;
 @end

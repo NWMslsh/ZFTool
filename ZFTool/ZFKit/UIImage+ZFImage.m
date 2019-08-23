@@ -111,4 +111,33 @@
         });
     });
 }
+/**
+ 生成二维码图片
+ */
++ (UIImage *)GenerateQrCode:(NSString *)codeResult andSize:(CGFloat)imageWidth{
+    
+    CIFilter * filter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
+    NSData * urlData = [codeResult dataUsingEncoding:NSUTF8StringEncoding];
+    [filter setValue:urlData forKeyPath:@"inputMessage"];
+    CIImage * outputImage = [filter outputImage];
+    
+    CGRect extent = CGRectIntegral(outputImage.extent);
+    CGFloat scale = MIN(imageWidth/CGRectGetWidth(extent), imageWidth/CGRectGetHeight(extent));
+    
+    size_t width = CGRectGetWidth(extent) * scale;
+    size_t height = CGRectGetHeight(extent) * scale;
+    CGColorSpaceRef cs = CGColorSpaceCreateDeviceGray();
+    CGContextRef bitmapRef = CGBitmapContextCreate(nil, width, height, 8, 0, cs, (CGBitmapInfo)kCGImageAlphaNone);
+    CIContext *context = [CIContext contextWithOptions:nil];
+    CGImageRef bitmapImage = [context createCGImage:outputImage fromRect:extent];
+    CGContextSetInterpolationQuality(bitmapRef, kCGInterpolationNone);
+    CGContextScaleCTM(bitmapRef, scale, scale);
+    CGContextDrawImage(bitmapRef, extent, bitmapImage);
+    
+    // 2.保存bitmap到图片
+    CGImageRef scaledImage = CGBitmapContextCreateImage(bitmapRef);
+    CGContextRelease(bitmapRef);
+    CGImageRelease(bitmapImage);
+    return [UIImage imageWithCGImage:scaledImage];
+}
 @end

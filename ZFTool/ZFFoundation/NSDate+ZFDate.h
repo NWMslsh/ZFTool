@@ -106,4 +106,12 @@
 +(NSString *)getTimerInterval:(NSString *)dateStr;
 //NSDate日期比较，是否是同一天，同一月，同一年
 + (BOOL)checkDate:(NSDate*)date1 WithDate:(NSDate*)date2;
+
++ (NSString *(^)(NSString *timeStamp,NSString *format))zf_timeFormat;
+
+/**
+ timeFormat 时间字符转时间戳
+ format 为nil时 时间字符格式为yyyy-MM-dd HH:mm:ss
+ */
++ (NSString *(^)(NSString *timeStr,NSString *format))zf_timeStrToTimeStamp;
 @end

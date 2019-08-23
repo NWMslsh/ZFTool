@@ -38,3 +38,14 @@ FOUNDATION_EXPORT const unsigned char ZFToolVersionString[];
 #import "ZFToast.h"
 #import "ZFAppLanguage.h"
 
+/**
+<u>RGB 转换成 YUV</u>
+Y = (0.257 * R) + (0.504 * G) + (0.098 * B) + 16
+Cr = V = (0.439 * R) - (0.368 * G) - (0.071 * B) + 128
+Cb = U = -( 0.148 * R) - (0.291 * G) + (0.439 * B) + 128
+ 
+<u>YUV 转换成 RGB</u>
+ B = 1.164(Y - 16) + 2.018(U - 128)
+ G = 1.164(Y - 16) - 0.813(V - 128) - 0.391(U - 128)
+ R = 1.164(Y - 16) + 1.596(V - 128)
+ */

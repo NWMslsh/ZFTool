@@ -112,5 +112,24 @@ static ZFToast *instance_toast = nil;
     return MIN(minDuration, 8.0);
 }
 
-
+/**
+ 错误提示
+ */
++ (void)showCode:(NSInteger)code{
+    
+//    if (code == -500) {
+//        [self showStatus:kLanS(@"T_error")];
+//        return;
+//    }else if(code == 500){
+//        [self showStatus:kLanS(@"T_dataError")];
+//        return;
+//    }
+//    //过滤的code码
+//    if (code == 500 ||
+//        code == 200) {
+//        return;
+//    }
+//    NSString *tip = [NSString stringWithFormat:@"T_%ld",code];
+//    [self showStatus:kLanS(tip)];
+}
 @end

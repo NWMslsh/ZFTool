@@ -9,17 +9,22 @@
 
 #import "UIView+Point.h"
 #import "Define-header.h"
+#import <objc/runtime.h>
 #pragma mark UIView
 @implementation UIView (Point)
+/**
+ 初始化
+ */
 + (UIView *(^)(void))zf_init{
     return ^(){
         return [[self alloc]init];
     };
 }
-
+/**
+ 设置frame
+ */
 - (UIView *(^)(CGFloat x,CGFloat y,CGFloat width,CGFloat height))zf_frame{
     return ^(CGFloat x,CGFloat y,CGFloat width,CGFloat height){
-        
         CGRect frame = self.frame;
         frame.origin.x = x;
         frame.origin.y = y;
@@ -27,19 +32,27 @@
         frame.size.height = height;
         self.frame = frame;
         return self;
-        
     };
 }
 
+/**
+ 设置背景颜色
+ */
 - (UIView *(^)(UIColor *color))zf_bgColor{
-    
-    
     return ^(UIColor *color){
         self.backgroundColor = color;
         return self;
     };
-    
-    
+}
+/**
+ 设置圆角
+ */
+- (UIView *(^)(CGFloat radius))zf_radius{
+    return ^(CGFloat radius){
+        [self.layer setCornerRadius:radius];
+        [self.layer setMasksToBounds:YES];
+        return self;
+    };
 }
 /**
  添加到View上
