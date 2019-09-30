@@ -1,10 +1,7 @@
-//
 //  NSDate+ZFDate.h
 //  ZFTool
-//
 //  Created by fengz on 2018/7/18.
 //  Copyright © 2018年 FengZ. All rights reserved.
-//
 
 #import <Foundation/Foundation.h>
 

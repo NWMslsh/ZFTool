@@ -24,6 +24,7 @@ typedef enum : NSUInteger {
 + (void)changeLan;
 
 + (NSString *)getServiceLan;
+
 @end
 
 

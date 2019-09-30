@@ -10,8 +10,7 @@
 #import <UIKit/UIKit.h>
 #import <CommonCrypto/CommonDigest.h>
 #import <CommonCrypto/CommonCryptor.h>
-#import "NSData+ZFData.h"
-
+#import "Define-header.h"
 #define FileHashDefaultChunkSizeForReadingData 1024*8
 @implementation NSString (ZFString)
 
@@ -36,7 +35,7 @@
 - (BOOL)JudgeTheillegalCharacter{
     
     NSString *content = [self stringByReplacingOccurrencesOfString:@" " withString:@""];
-    //提示 标签不能输入特殊字符
+    //提示标签不能输入特殊字符
     NSString *str =@"^[A-Za-z0-9\\u4e00-\u9fa5]+$";
     NSPredicate* emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", str];
     if (![emailTest evaluateWithObject:content]) {
@@ -132,11 +131,6 @@
      21         * 133,1349,153,177,180,189
      22         */
     NSString * CT = @"^1((33|53|77|8[09])[0-9]|349)\\d{7}$";
-    
-    
-    
-    
-    
     /**
      25         * 大陆地区固话及小灵通
      26         * 区号：010,020,021,022,023,024,025,027,028,029
@@ -335,8 +329,7 @@ NSString *const kInitVector = @"BH-128ByteVector";
     free(decryptedBytes);
     
     
-    return
-    nil;
+    return nil;
     
     
 }
@@ -383,26 +376,14 @@ NSString *const kInitVector = @"BH-128ByteVector";
         return true;
     }
     
-    NSCharacterSet *cs = [[NSCharacterSet characterSetWithCharactersInString:ZF_PaasWord_Number] invertedSet];
+    NSCharacterSet *cs = [[NSCharacterSet characterSetWithCharactersInString:@""] invertedSet];
     
-    NSString *filtered = [[self componentsSeparatedByCharactersInSet:cs] componentsJoinedByString:@""];
+    NSString *filtered = [[self componentsSeparatedByCharactersInSet:cs] componentsJoinedByString:ZF_PaasWord_Number];
     if (![self isEqualToString:filtered]) {
         return true;
     }
     return false;
 }
 
-+ (NSString * (^)(int a))initInt{
-    return ^(int a){
-        
-        return [NSString stringWithFormat:@"%d",a];
-    };
-}
-+ (NSString * (^)(long a))initLong{
-    
-    return ^(long a){
-        
-        return [NSString stringWithFormat:@"%ld",a];
-    };
-}
+
 @end

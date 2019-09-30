@@ -8,10 +8,9 @@
 
 #import "ZFToast.h"
 #import "Define-header.h"
-#import "UIColor+ZFColor.h"
 #import "UIFont+ZFFont.h"
 #import "UIView+ZFView.h"
-#import "UIView+Animation.h"
+#import "ZFAppLanguage.h"
 @interface ZFToast()
 @property(nonatomic,strong)NSTimer *fadeOutTimer;
 @property(nonatomic,weak)UILabel *titlelb;
@@ -32,9 +31,8 @@ static ZFToast *instance_toast = nil;
         
         self.layer.cornerRadius = 5;
         self.layer.masksToBounds = true;
-        
         self.hidden = true;
-        self.backgroundColor = UIColor.mask_color();
+        self.backgroundColor = ZF_rgba_color(0, 0, 0, 0.8);
         UILabel *titlelb = [UILabel new];
         titlelb.font = [UIFont Size:15];
         titlelb.numberOfLines = 0;
@@ -117,19 +115,19 @@ static ZFToast *instance_toast = nil;
  */
 + (void)showCode:(NSInteger)code{
     
-//    if (code == -500) {
-//        [self showStatus:kLanS(@"T_error")];
-//        return;
-//    }else if(code == 500){
-//        [self showStatus:kLanS(@"T_dataError")];
-//        return;
-//    }
-//    //过滤的code码
-//    if (code == 500 ||
-//        code == 200) {
-//        return;
-//    }
-//    NSString *tip = [NSString stringWithFormat:@"T_%ld",code];
-//    [self showStatus:kLanS(tip)];
+    if (code == -500) {
+        [self showStatus:GetLan(@"T_error")];
+        return;
+    }else if(code == 500){
+        [self showStatus:GetLan(@"T_dataError")];
+        return;
+    }
+    //过滤的code码
+    if (code == 500 ||
+        code == 200) {
+        return;
+    }
+    NSString *tip = [NSString stringWithFormat:@"T_%ld",(long)code];
+    [self showStatus:GetLan(tip)];
 }
 @end

@@ -1,10 +1,7 @@
-//
 //  Define-header.h
 //  ZFTool
-//
 //  Created by fengz on 2018/7/25.
 //  Copyright © 2018年 FengZ. All rights reserved.
-//
 #define ZF_Number @"0123456789"
 #define ZF_Phone_Number @"0123456789-"
 #define ZF_Hex_Number @"ABCDEFabcdef0123456789"
@@ -14,41 +11,29 @@
 //机型
 #define ZF_ScreenH [UIScreen mainScreen].bounds.size.height
 #define ZF_ScreenW [UIScreen mainScreen].bounds.size.width
-
 #define ZF_ScaleH ZF_ScreenH/667.0
-
 #define ZF_StatusH [UIApplication sharedApplication].statusBarFrame.size.height
 #define ZF_NavH  44
 #define ZF_StatusHAndNavH ZF_StatusH + ZF_NavH
 #define ZF_TabbarH (ZF_StatusH > 20.0?83.0:49.0)
 
-
-#define ZF_IsIPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640,1136), [[UIScreen mainScreen] currentMode].size) : NO)
-#define ZF_IsIPhone6 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? (CGSizeEqualToSize(CGSizeMake(750,1334), [[UIScreen mainScreen] currentMode].size) || CGSizeEqualToSize(CGSizeMake(640,1136), [[UIScreen mainScreen] currentMode].size)) : NO)
-#define ZF_IsIPhone6plus ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? (CGSizeEqualToSize(CGSizeMake(1125,2001), [[UIScreen mainScreen] currentMode].size) || CGSizeEqualToSize(CGSizeMake(1242,2208), [[UIScreen mainScreen] currentMode].size)) : NO)
-#define ZF_IsIPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
-
 //IMG
-#define IMG(IMGSTR)  [UIImage imageNamed:IMGSTR]
+#define ZF_IMG(IMGSTR)  [UIImage imageNamed:IMGSTR]
 /**
  判空
  */
-#define  ZF_IsNull(obj) [obj isKindOfClass:[NSNull class]] || obj == NULL || obj == nil ? YES : NO
+#define  ZF_IsNull(obj) [obj isKindOfClass:[NSNull class]] || obj == NULL || obj == nil ? true : false
 
 /**
  判断空串
  */
-#define  ZF_IsEmptyStr(string) string == nil || string == NULL ||[string isKindOfClass:[NSNull class]]|| [string isEqualToString:@""] ||[[string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] length]==0 ? YES : NO
-
-
-
+#define  ZF_IsEmptyStr(string) [string isKindOfClass:[NSNull class]] || string == NULL || string == nil || [string isEqualToString:@""] ||[[string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] length]==0 ? true : false
 
 #define ZF_UserDefaults [NSUserDefaults standardUserDefaults]
 #define ZF_FileManager [NSFileManager defaultManager]
-
 #define ZF_WeakSelf(type)  __weak typeof(type) weak##type = type;
 #define ZF_BlockSelf(type)  __block typeof(type) block##type = type;
-//检测block是否可用
+//检测block是否可用,可用则执行
 #define ZF_BLOCK_EXEC(block, ...) if (block) { block(__VA_ARGS__); };
 // View圆角
 #define ZF_ViewRadius(View,Radius) [View.layer setCornerRadius:(Radius)]; [View.layer setMasksToBounds:YES];
@@ -57,7 +42,6 @@
 
 #define ZF_rgb_color(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(1)]
 #define ZF_rgba_color(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
-
 #define ZF_hex_color(hexValue) [UIColor colorWithRed:((float)((hexValue & 0xFF0000) >> 16)) / 255.0 green:((float)((hexValue & 0xFF00) >> 8)) / 255.0 blue:((float)(hexValue & 0xFF)) / 255.0 alpha:1.0f]
 
 
@@ -102,12 +86,10 @@ return _instance;\
 });
 
 #define ZF_AddNotication(name_Y)   [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(onEventNotification:) name:name_Y object:nil];
-
-
 #define ZF_RemNotication(name) [[NSNotificationCenter defaultCenter] removeObserver:self name:name object:nil];
-
-
 
 #define DEFINE_EVENT(EVENT) static NSString* EVENT = @#EVENT;
 //语音改变
 DEFINE_EVENT(AppLanguageChange_Notication)
+
+#define GetLan(key) NSLocalizedStringFromTableInBundle(key, @"AppLanguages", [ZFAppLanguage getBundle], nil)

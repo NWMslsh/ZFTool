@@ -19,7 +19,6 @@ FOUNDATION_EXPORT const unsigned char ZFToolVersionString[];
 #import "Define-header.h"
 
 // ZFView
-#import "UIView+Animation.h"
 #import "UIView+ZFView.h"
 #import "ZFCardView.h"
 #import "UIView+Point.h"
@@ -34,7 +33,7 @@ FOUNDATION_EXPORT const unsigned char ZFToolVersionString[];
 #import "NSObject+ZFObject.h"
 #import "ZFResult.h"
 // Common
-#import "ZFCommonTool.h"
+#import "ZFCommon.h"
 #import "ZFToast.h"
 #import "ZFAppLanguage.h"
 

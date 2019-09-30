@@ -89,6 +89,4 @@
 - (BOOL)passrodFilter;
 
 
-+ (NSString * (^)(int a))initInt;
-+ (NSString * (^)(long a))initLong;
 @end
